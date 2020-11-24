@@ -24,14 +24,10 @@ public class Tracker {
   public Item[] findByName(String key) {
     Item[] result = new Item[100];
     int size = 0;
-    for (Item item : items) {
-      if (item != null) {
-        if (item.getName().equals(key)) {
-          result[size] = item;
-          size++;
-        }
-      } else {
-        break;
+    for (int i = 0; i < items.length; i++) {
+      if (items[i].getName().equals(key)) {
+        result[size] = items[i];
+        size++;
       }
     }
     return Arrays.copyOf(result, size);
