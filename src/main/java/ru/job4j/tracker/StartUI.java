@@ -7,6 +7,11 @@ public class StartUI {
     tracker.add(new Item(1,"Заявление новое"));
     Item item = tracker.findById(1);
     System.out.println(item.getId()+" "+item.getName());
+
+    Item[] items = tracker.findByName("Заявление новое");
+    for (int i = 0; i <items.length ; i++) {
+      System.out.println(items[i]);
+    }
   }
 
 }

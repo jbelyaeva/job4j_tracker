@@ -25,9 +25,13 @@ public class Tracker {
     Item[] result = new Item[100];
     int size = 0;
     for (Item item : items) {
-      if (item.getName().equals(key)) {
-        result[size] = item;
-        size++;
+      if (item != null) {
+        if (item.getName().equals(key)) {
+          result[size] = item;
+          size++;
+        }
+      } else {
+        break;
       }
     }
     return Arrays.copyOf(result, size);
