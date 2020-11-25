@@ -24,7 +24,7 @@ public class Tracker {
   public Item[] findByName(String key) {
     Item[] result = new Item[100];
     int size = 0;
-    for (int i = 0; i < items.length; i++) {
+    for (int i = 0; i < this.size; i++) {
       if (items[i].getName().equals(key)) {
         result[size] = items[i];
         size++;
