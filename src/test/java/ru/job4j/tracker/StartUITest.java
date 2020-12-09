@@ -34,6 +34,7 @@ public class StartUITest {
         new String[]{"0", "1"}
     );
     Tracker tracker = new Tracker();
+    Item item = tracker.add(new Item("Items name"));
     UserAction[] actions = {
         new ShowAllAction(out),
         new ExitAction()
@@ -45,6 +46,8 @@ public class StartUITest {
             "0. Show all items" +
             System.lineSeparator() +
             "1. Exit" +
+            System.lineSeparator() +
+            item +
             System.lineSeparator() +
             System.lineSeparator() +
             "Menu." +
@@ -76,7 +79,7 @@ public class StartUITest {
             System.lineSeparator() +
             "1. Exit" +
             System.lineSeparator() +
-            "Item{id=1, name='Items name'}" +
+            item +
             System.lineSeparator() +
             System.lineSeparator() +
             "Menu." +
@@ -108,7 +111,7 @@ public class StartUITest {
             System.lineSeparator() +
             "1. Exit" +
             System.lineSeparator() +
-            "Item{id=1, name='Items name'}" +
+            item +
             System.lineSeparator() +
             System.lineSeparator() +
             "Menu." +
