@@ -124,9 +124,9 @@ public class StartUITest {
   }
   @Test
   public void whenInvalidExit() {
-  /*  Output out = new StubOutput();
+    Output out = new StubOutput();
     Input in = new StubInput(
-        new String[] {  }
+        new String[] {"9","0"}
     );
     Tracker tracker = new Tracker();
     UserAction[] actions = {
@@ -141,6 +141,6 @@ public class StartUITest {
                 + "Menu.%n"
                 + "0. Exit%n"
         )
-    ));*/
+    ));
   }
 }
