@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 public class StartUI {
+
   private final Output out;
 
   public StartUI(Output out) {
@@ -11,9 +12,17 @@ public class StartUI {
     boolean run = true;
     while (run) {
       this.showMenu(actions);
-      int select = input.askInt("Select: ");
-      UserAction action = actions[select];
-      run = action.execute(input, tracker);
+      boolean invalid = true;
+      do {
+        int select = input.askInt("Select: ");
+        try {
+          UserAction action = actions[select];
+          run = action.execute(input, tracker);
+          invalid = false;
+        } catch (ArrayIndexOutOfBoundsException e) {
+          System.out.println("Please enter validate data from Menu.");
+        }
+      } while (invalid);
     }
   }
 
@@ -26,10 +35,11 @@ public class StartUI {
 
   public static void main(String[] args) {
     Output output = new ConsoleOutput();
-    Input input = new ConsoleInput();
+    Input input = new ValidateInput();
     Tracker tracker = new Tracker();
     UserAction[] actions = {
-        new CreateAction(output), new ShowAllAction(output), new EditAction(output), new DeleteAction(output),
+        new CreateAction(output), new ShowAllAction(output), new EditAction(output),
+        new DeleteAction(output),
         new FindByIdAction(output), new FindByNameAction(output), new ExitAction()
     };
     new StartUI(output).init(input, tracker, actions);
