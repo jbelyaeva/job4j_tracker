@@ -12,17 +12,13 @@ public class StartUI {
     boolean run = true;
     while (run) {
       this.showMenu(actions);
-      boolean invalid = true;
-      do {
-        int select = input.askInt("Select: ");
-        try {
-          UserAction action = actions[select];
-          run = action.execute(input, tracker);
-          invalid = false;
-        } catch (ArrayIndexOutOfBoundsException e) {
-          System.out.println("Please enter validate data from Menu.");
-        }
-      } while (invalid);
+      int select = input.askInt("Select: ");
+      if (select < 0 || select >= actions.length) {
+        out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+        continue;
+      }
+      UserAction action = actions[select];
+      run = action.execute(input, tracker);
     }
   }
 
