@@ -22,8 +22,8 @@ public class TrackerTest {
 
     @Test
     public void whenSinglenton() {
-        Tracker trackerOld = TrackerSingle.INSTANCE.getTracker();
-        Tracker trackerNew = TrackerSingle.INSTANCE.getTracker();;
+        Tracker trackerOld = TrackerSingle.getInstance();
+        Tracker trackerNew = TrackerSingle.getInstance();
         assertSame(trackerOld, trackerNew);
     }
 

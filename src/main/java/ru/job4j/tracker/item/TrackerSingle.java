@@ -2,11 +2,16 @@ package ru.job4j.tracker.item;
 
 import ru.job4j.tracker.Tracker;
 
-public enum  TrackerSingle {
-  INSTANCE;
-  Tracker tracker = new Tracker();
+public class TrackerSingle {
+  private static Tracker instance;
 
-  public Tracker getTracker() {
-    return tracker;
+  private TrackerSingle() {
+  }
+
+  public static Tracker getInstance() {
+    if (instance == null) {
+      instance = new Tracker();
+    }
+    return instance;
   }
 }
