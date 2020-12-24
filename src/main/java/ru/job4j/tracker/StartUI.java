@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.item.TrackerSingle;
+
 public class StartUI {
 
   private final Output out;
@@ -32,7 +34,7 @@ public class StartUI {
   public static void main(String[] args) {
     Output output = new ConsoleOutput();
     Input input = new ValidateInput(output, new ConsoleInput());
-    Tracker tracker = new Tracker();
+    Tracker tracker = TrackerSingle.INSTANCE.getTracker();
     UserAction[] actions = {
         new CreateAction(output), new ShowAllAction(output), new EditAction(output),
         new DeleteAction(output),

@@ -1,8 +1,11 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.tracker.item.TrackerSingle;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
@@ -14,6 +17,14 @@ public class TrackerTest {
         tracker.add(item);
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
+    }
+
+
+    @Test
+    public void whenSinglenton() {
+        Tracker trackerOld = TrackerSingle.INSTANCE.getTracker();
+        Tracker trackerNew = TrackerSingle.INSTANCE.getTracker();;
+        assertSame(trackerOld, trackerNew);
     }
 
     @Test
