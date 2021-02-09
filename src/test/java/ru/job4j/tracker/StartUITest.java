@@ -4,6 +4,15 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.input.StubInput;
+import ru.job4j.tracker.output.Output;
+import ru.job4j.tracker.output.StubOutput;
+import ru.job4j.tracker.useraction.ExitAction;
+import ru.job4j.tracker.useraction.FindByIdAction;
+import ru.job4j.tracker.useraction.FindByNameAction;
+import ru.job4j.tracker.useraction.ShowAllAction;
+import ru.job4j.tracker.useraction.UserAction;
 
 
 public class StartUITest {
