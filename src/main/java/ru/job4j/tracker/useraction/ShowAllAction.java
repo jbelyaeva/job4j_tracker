@@ -1,18 +1,19 @@
 package ru.job4j.tracker.useraction;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.output.Output;
 
 public class ShowAllAction implements UserAction {
+
   private final Output out;
 
   public ShowAllAction(Output out) {
     this.out = out;
   }
+
   @Override
   public String name() {
     return "Show all items";
@@ -20,7 +21,7 @@ public class ShowAllAction implements UserAction {
 
   @Override
   public boolean execute(Input input, Tracker tracker) {
-    ArrayList<Item> items = tracker.findAll();
+    List<Item> items = tracker.findAll();
     for (Item item : items) {
       out.println(item);
     }
