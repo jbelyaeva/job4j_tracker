@@ -1,35 +1,13 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.sortItem;
 
+import java.util.Comparator;
 import java.util.Objects;
+import ru.job4j.tracker.Item;
 
-public class Item {
+public class SortItemByNameIncrease implements Comparator<Item> {
 
   private int id;
   private String name;
-
-  public Item() {
-  }
-
-  public Item(int id) {
-    this.id = id;
-  }
-
-  public Item(String name) {
-    this.name = name;
-  }
-
-  public Item(int id, String name) {
-    this.id = id;
-    this.name = name;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
 
   public String getName() {
     return name;
@@ -48,6 +26,11 @@ public class Item {
   }
 
   @Override
+  public int compare(Item first, Item second) {
+      return first.getName().compareTo(second.getName());
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -55,8 +38,8 @@ public class Item {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Item item = (Item) o;
-    return id == item.id && Objects.equals(name, item.name);
+    SortItemByNameIncrease that = (SortItemByNameIncrease) o;
+    return id == that.id && Objects.equals(name, that.name);
   }
 
   @Override
