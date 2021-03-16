@@ -1,7 +1,6 @@
-package ru.job4j.tracker.sortItem;
+package ru.job4j.tracker.sortitem;
 
 import java.util.Comparator;
-import java.util.Objects;
 import ru.job4j.tracker.Item;
 
 public class SortItemByNameDecrease implements Comparator<Item> {

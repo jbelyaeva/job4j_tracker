@@ -19,7 +19,6 @@ public class TrackerTest {
         assertThat(result.getName(), is(item.getName()));
     }
 
-
     @Test
     public void whenSinglenton() {
         Tracker trackerOld = TrackerSingle.getInstance();

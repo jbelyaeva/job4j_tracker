@@ -16,7 +16,6 @@ import ru.job4j.tracker.useraction.FindByNameAction;
 import ru.job4j.tracker.useraction.ShowAllAction;
 import ru.job4j.tracker.useraction.UserAction;
 
-
 public class StartUITest {
 
   @Test
@@ -27,12 +26,15 @@ public class StartUITest {
     );
     Tracker tracker = new Tracker();
     List<UserAction> actions = new ArrayList<>();
-   actions.add(new ExitAction());
+    actions.add(new ExitAction());
     new StartUI(out).init(in, tracker, actions);
     assertThat(out.toString(), is(
-        "Menu." +
-            System.lineSeparator() +
-            "0. Exit" +
+        "Menu."
+            +
+            System.lineSeparator()
+            +
+            "0. Exit"
+            +
             System.lineSeparator()
     ));
   }
@@ -77,7 +79,7 @@ public class StartUITest {
     Tracker tracker = new Tracker();
     Item item = tracker.add(new Item("Items name"));
     List<UserAction> actions = new ArrayList<>();
-    actions.add( new FindByNameAction(out));
+    actions.add(new FindByNameAction(out));
     actions.add(new ExitAction());
     new StartUI(out).init(in, tracker, actions);
     assertThat(out.toString(), is(
@@ -129,11 +131,12 @@ public class StartUITest {
             + System.lineSeparator()
     ));
   }
+
   @Test
   public void whenInvalidExit() {
     Output out = new StubOutput();
     Input in = new StubInput(
-        new String[] {"9","0"}
+        new String[]{"9", "0"}
     );
     Tracker tracker = new Tracker();
     List<UserAction> actions = new ArrayList<>();
@@ -154,7 +157,7 @@ public class StartUITest {
   public void whenInvalidMenu() {
     Output out = new StubOutput();
     Input in = new StubInput(
-        new String[] {"-1","0"}
+        new String[]{"-1", "0"}
     );
     Tracker tracker = new Tracker();
     List<UserAction> actions = new ArrayList<>();

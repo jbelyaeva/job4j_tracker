@@ -1,4 +1,4 @@
-package ru.job4j.tracker.sortItem;
+package ru.job4j.tracker.sortitem;
 
 import java.util.Comparator;
 import ru.job4j.tracker.Item;
